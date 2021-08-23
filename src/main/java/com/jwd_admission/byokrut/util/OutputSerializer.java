@@ -37,8 +37,6 @@ public class OutputSerializer {
         }catch (NullPointerException e){
             logger.error(e);
         }
-
-
         return result;
     }
 }
