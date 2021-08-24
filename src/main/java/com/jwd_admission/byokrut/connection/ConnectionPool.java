@@ -13,6 +13,10 @@ import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
+/**
+ * Class that provides connection pool with reading properties from file
+ */
+
 public enum ConnectionPool  {
     INSTANCE;
 

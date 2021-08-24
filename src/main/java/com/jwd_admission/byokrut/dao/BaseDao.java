@@ -2,8 +2,6 @@ package com.jwd_admission.byokrut.dao;
 
 import com.jwd_admission.byokrut.entity.BaseEntity;
 
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 public abstract class BaseDao<K, T extends BaseEntity> {

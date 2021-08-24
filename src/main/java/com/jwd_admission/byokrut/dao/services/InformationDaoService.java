@@ -3,7 +3,10 @@ package com.jwd_admission.byokrut.dao.services;
 import com.jwd_admission.byokrut.dao.InformationDao;
 import com.jwd_admission.byokrut.entity.User;
 
-import java.sql.Connection;
+/**
+ * This class some methods from {@link InformationDao}
+ */
+
 
 public class InformationDaoService {
     private static InformationDao informationDao;

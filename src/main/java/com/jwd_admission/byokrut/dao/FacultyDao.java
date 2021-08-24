@@ -16,6 +16,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class handle CRUD operations for table with information about faculty
+ */
+
 public class FacultyDao extends BaseDao<Integer, Faculty> {
     private static final Logger logger = LogManager.getLogger();
 
@@ -24,14 +28,12 @@ public class FacultyDao extends BaseDao<Integer, Faculty> {
     private static final String subjectIdFromSchema= FacultySubjectSchema.subject_id.name();
 
     private static final String SELECT_ALL_FACULTUES = "SELECT * FROM faculty";
-    private static final String SELECT_ALL_FACULTUES_ID = "SELECT id FROM faculty";
     private static final String SELECT_FACULTY_BY_ID_FROM_FACULTY = "SELECT * FROM faculty WHERE id=?";
     private static final String SELECT_SUBJECT_ID_NAME_BY_FACULTY_ID_FROM_FAC_SUB = "select name, subject_id from subject inner join faculty_subject fs on subject.id = fs.subject_id where faculty_id=?";
 
     @Override
     public Faculty findEntityById(Integer id) {
         Faculty faculty = new Faculty(id);
-//        ArrayList<Subject> subjects = findSubjectInfo(id);
         faculty.setSubjects(findSubjectInfo(id));
         try (Connection connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_FACULTY_BY_ID_FROM_FACULTY)) {

@@ -1,10 +1,11 @@
 package com.jwd_admission.byokrut.dao.services;
 
-
 import com.jwd_admission.byokrut.dao.UserDao;
 import com.jwd_admission.byokrut.entity.User;
 
-import java.sql.Connection;
+/**
+ * This class some methods from {@link UserDao}
+ */
 
 public class UserDaoService {
     private static UserDao userDao;

@@ -5,8 +5,22 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
+/**
+ * Wraps class Connection.
+ * Difference in close and hardClose methods
+ */
+
 public class ProxyConnection implements Connection {
     private Connection connection;
+
+    @Override
+    public void close() throws SQLException {
+        ConnectionPool.INSTANCE.releaseConnection(this);
+    }
+
+    void hardClose() throws SQLException {
+        connection.close();
+    }
 
     ProxyConnection(Connection connection) {
         this.connection = connection;
@@ -52,14 +66,7 @@ public class ProxyConnection implements Connection {
         connection.rollback();
     }
 
-    @Override
-    public void close() throws SQLException {
-        ConnectionPool.INSTANCE.releaseConnection(this);
-    }
 
-    void hardClose() throws SQLException {
-        connection.close();
-    }
 
     @Override
     public boolean isClosed() throws SQLException {

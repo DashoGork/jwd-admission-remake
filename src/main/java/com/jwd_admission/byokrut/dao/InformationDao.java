@@ -13,6 +13,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class handle CRUD operations for table with information about information
+ */
+
 public class InformationDao extends BaseDao<Integer, PersonalInformation> {
     private static final Logger logger = LogManager.getLogger();
     private static final String nameField = InformationSchema.name.name();

@@ -1,5 +1,9 @@
 package com.jwd_admission.byokrut.enums;
 
+/**
+ * Enumeration contains paths for files with results
+ */
+
 public enum PathToFiles {
     MMFPassed("output/passedMMF.ser"),
     RFIKTPassed("output/passedRFIKT.ser"),

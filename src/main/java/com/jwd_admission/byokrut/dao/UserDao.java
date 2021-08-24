@@ -14,6 +14,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Enumeration contains all names of servlet context attributes
+ */
+
 public class UserDao extends BaseDao<Integer, User> {
     private static final Logger logger = LogManager.getLogger();
     private static final String loginField = UserSchema.login.name();

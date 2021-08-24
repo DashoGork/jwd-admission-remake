@@ -18,11 +18,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * This is only servlet in application
+ */
+
 @WebServlet(name = "home", value = "/home")
 public class MainServlet extends HttpServlet {
     static final String COMMAND = "command";
     final private CommandService commandService = new CommandService();
     private FacultyDao facultyDao = new FacultyDao();
+
+    /**
+     * Initialize servlet context
+     * @throws ServletException
+     */
 
     @Override
     public void init() throws ServletException {

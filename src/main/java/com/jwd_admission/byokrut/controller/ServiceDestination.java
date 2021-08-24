@@ -1,5 +1,9 @@
 package com.jwd_admission.byokrut.controller;
 
+/**
+ * Contains paths to jsp files
+ */
+
 public enum ServiceDestination implements Destination {
     MAIN_PAGE("/index.jsp"),
     LOGIN_PAGE("/WEB-INF/jsp/signIn.jsp"),
@@ -10,7 +14,6 @@ public enum ServiceDestination implements Destination {
     INDEX("/");
 
     private final String path;
-//    private static final String BASE_URL = "/WEB-INF/jsp";
 
     ServiceDestination(String path) {
         this.path = path;

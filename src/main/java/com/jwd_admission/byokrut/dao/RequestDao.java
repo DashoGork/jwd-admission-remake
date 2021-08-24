@@ -14,6 +14,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class handle CRUD operations for table with information about request
+ */
+
 public class RequestDao extends BaseDao<Integer, Request> {
     private static final String userIdField = RequestSchema.user_id.name();
     private static final String requestIdField = RequestSchema.id.name();

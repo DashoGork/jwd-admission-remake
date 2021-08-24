@@ -3,6 +3,10 @@ package com.jwd_admission.byokrut.entity;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * This class describes
+ */
+
 public class Faculty extends BaseEntity {
     private int numberOfStudents;
     private String name;
