@@ -6,6 +6,10 @@ import com.jwd_admission.byokrut.model.CommandResponse;
 
 import static com.jwd_admission.byokrut.controller.ServiceDestination.LOGIN_PAGE;
 
+/**
+ * This command shows page for log in
+ */
+
 public class ShowLoginPageCommand implements Command {
 
     @Override

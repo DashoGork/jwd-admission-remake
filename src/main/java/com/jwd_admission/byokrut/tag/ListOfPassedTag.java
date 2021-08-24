@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- *This tag displays information from the list of users to the page
+ *This tag displays information from the list of users to the JSP page
  * */
 public class ListOfPassedTag extends TagSupport {
     private List<User> userList;

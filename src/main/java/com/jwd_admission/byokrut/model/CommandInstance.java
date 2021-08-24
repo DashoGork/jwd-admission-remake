@@ -1,7 +1,9 @@
 package com.jwd_admission.byokrut.model;
 
 import com.jwd_admission.byokrut.model.commands.*;
-
+/**
+ * This enum contains all command {@link Command} objects
+ */
 public enum CommandInstance {
     SHOW_MAIN(new ShowMainPageCommand()),
     SHOW_REGISTRATION(new ShowRegistrationPageCommand()),

@@ -16,6 +16,10 @@ import java.util.List;
 
 import static com.jwd_admission.byokrut.controller.ServiceDestination.PERSONAL_ACCOUNT_PAGE;
 
+/**
+ * This command shows personal page for admin and user
+ */
+
 public class ShowPersonalAccountCommand implements Command {
     private  UserDao userDao = new UserDao();
     private  InformationDao informationDao = new InformationDao();
@@ -29,7 +33,7 @@ public class ShowPersonalAccountCommand implements Command {
     @Override
     public CommandResponse execute(CommandRequest request) {
         HttpSession session = request.createSession();
-        int role = Integer.parseInt(String.valueOf(session.getAttribute("role")));
+        int role = (int) session.getAttribute(SessionAttributes.role.name());
         if (role == UserRole.ADMIN.getRoleId()) {
             List<PersonalInformation> personalInformationList = informationDao.findAll();
             List<User> userList = new ArrayList<>();
@@ -40,8 +44,8 @@ public class ShowPersonalAccountCommand implements Command {
                 userList.add(user);
             }
             List<Request> userReq = requestDao.findAll();
-            session.setAttribute("users", userList);
-            session.setAttribute("req", userReq);
+            session.setAttribute(SessionAttributes.users.name(), userList);
+            session.setAttribute(SessionAttributes.req.name(), userReq);
         } else {
             User user = new User();
             user.setRoleId(Integer.parseInt(String.valueOf(session.getAttribute(SessionAttributes.role.toString()))));
@@ -50,10 +54,10 @@ public class ShowPersonalAccountCommand implements Command {
             user = userDao.findEntityById(user.getId());
             user.setPersonalInformation(informationDao.findEntityById(user.getPersonalInformation().getId()));
             Request userRequest = requestDao.findRequestByUser(user.getId());
-            session.setAttribute("user", user);
-            session.setAttribute("req", userRequest);
+            session.setAttribute(SessionAttributes.user.name(), user);
+            session.setAttribute(SessionAttributes.req.name(), userRequest);
 
-            session.setAttribute("faculty", facultyDao.findEntityById(userRequest.getFacultyId()).getName());
+            session.setAttribute(SessionAttributes.faculty.name(), facultyDao.findEntityById(userRequest.getFacultyId()).getName());
 
         }
         return COMMAND_RESPONSE;

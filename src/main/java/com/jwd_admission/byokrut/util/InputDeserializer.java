@@ -15,17 +15,18 @@ public class InputDeserializer {
 
     /**
      * Method which reads serialized objects from file
+     *
      * @param path - path to file
      * @return deserialized object
      */
     public static Object deserialize(String path) {
         Object result = null;
-        try{
+        try {
             File file = new File(
                     PropertyReaderUtil.class.getClassLoader().getResource(path).getFile()
             );
-            if(file!=null){
-                if(file.length()!=0){
+            if (file != null) {
+                if (file.length() != 0) {
                     try (FileInputStream fileInputStream = new FileInputStream(file);
                          ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
                         result = objectInputStream.readObject();
@@ -34,7 +35,7 @@ public class InputDeserializer {
                     }
                 }
             }
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             logger.error(e);
         }
         return result;

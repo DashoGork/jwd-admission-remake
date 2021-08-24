@@ -1,6 +1,5 @@
 package com.jwd_admission.byokrut.model.commands;
 
-import com.jwd_admission.byokrut.connection.ConnectionPool;
 import com.jwd_admission.byokrut.dao.InformationDao;
 import com.jwd_admission.byokrut.dao.RequestDao;
 import com.jwd_admission.byokrut.dao.UserDao;
@@ -10,9 +9,11 @@ import com.jwd_admission.byokrut.model.Command;
 import com.jwd_admission.byokrut.model.CommandRequest;
 import com.jwd_admission.byokrut.model.CommandResponse;
 
-import java.sql.Connection;
-
 import static com.jwd_admission.byokrut.controller.ServiceDestination.EDIT_PAGE;
+
+/**
+ * This command shows page for editing user info
+ */
 
 public class ShowEditPageCommand implements Command {
     private  UserDao userDao = new UserDao();
@@ -29,6 +30,5 @@ public class ShowEditPageCommand implements Command {
         request.setAttribute("req", userRequest);
         request.setAttribute("user", user);
         return new CommandResponse(EDIT_PAGE);
-
     }
 }

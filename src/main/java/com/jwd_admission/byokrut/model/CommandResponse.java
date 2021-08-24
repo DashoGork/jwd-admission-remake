@@ -2,6 +2,9 @@ package com.jwd_admission.byokrut.model;
 
 import com.jwd_admission.byokrut.controller.Destination;
 
+/**
+ *This class is result of command {@link Command} execution
+ */
 
 public class CommandResponse {
     private boolean isRedirect = false;

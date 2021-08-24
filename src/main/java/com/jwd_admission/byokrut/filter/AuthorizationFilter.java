@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 /**
- * Filter which limit access
+ * Filter which limits access
  */
 
 @WebFilter(urlPatterns = "/home/*")

@@ -6,6 +6,10 @@ import com.jwd_admission.byokrut.model.CommandResponse;
 
 import static com.jwd_admission.byokrut.controller.ServiceDestination.REGISTRATION_PAGE;
 
+/**
+ * This command shows registration page
+ */
+
 public class ShowRegistrationPageCommand implements Command {
     @Override
     public CommandResponse execute(CommandRequest request) {

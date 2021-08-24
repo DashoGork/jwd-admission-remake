@@ -3,7 +3,7 @@ package com.jwd_admission.byokrut.model;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *
+ *This class is responsible for executing commands
  */
 
 public class CommandService {
@@ -12,6 +12,4 @@ public class CommandService {
         Command command = Command.of(commandName);
         return command.execute(new CommandRequest(request));
     }
-
-
 }

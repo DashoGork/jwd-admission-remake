@@ -17,24 +17,21 @@ public class OutputSerializer {
 
     public static boolean serialize(Object object, String path) {
         boolean result = false;
-        try{
-
-            File output = new File(
-                    PropertyReaderUtil.class.getClassLoader().getResource(path).getFile()
-            );
+        try{File output = new File(
+                    PropertyReaderUtil.class.getClassLoader().getResource(path).getFile());
             if(output!=null){
+                if (!output.exists()) {
+                    output.createNewFile();
+                }
                 try (FileOutputStream outputStream = new FileOutputStream(output);
                      ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream)) {
-                    if (!output.exists()) {
-                        output.createNewFile();
-                    }
                     objectOutputStream.writeObject(object);
                     result = true;
                 } catch (IOException e) {
                     logger.error(e);
                 }
             }
-        }catch (NullPointerException e){
+        }catch (NullPointerException | IOException e){
             logger.error(e);
         }
         return result;

@@ -9,6 +9,10 @@ import javax.servlet.http.HttpSession;
 
 import static com.jwd_admission.byokrut.controller.ServiceDestination.MAIN_PAGE;
 
+/**
+ * This command log out user
+ */
+
 public class UserLogOutCommand implements Command {
     @Override
     public CommandResponse execute(CommandRequest request) {

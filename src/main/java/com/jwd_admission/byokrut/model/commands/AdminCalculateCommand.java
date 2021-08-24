@@ -58,8 +58,6 @@ public class AdminCalculateCommand implements Command {
         List<User> userListFromBio = createUserListFromRequestList(requestDao.findAllPassed(FacultyName.BIO));
 
         ServletContext servletContext = request.getSession().getServletContext();
-        //duplicate with main servlet
-
         OutputSerializer.serialize(userListFromMmf, PathToFiles.MMFPassed.getPath());
         OutputSerializer.serialize(userListFromFmo, PathToFiles.FMOPassed.getPath());
         OutputSerializer.serialize(userListFromRfikt, PathToFiles.RFIKTPassed.getPath());

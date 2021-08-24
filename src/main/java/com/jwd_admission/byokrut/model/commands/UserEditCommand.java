@@ -12,6 +12,10 @@ import com.jwd_admission.byokrut.model.CommandResponse;
 
 import static com.jwd_admission.byokrut.controller.ServiceDestination.PERSONAL_ACCOUNT_PAGE;
 
+/**
+ * This command edits information about user in db
+ */
+
 public class UserEditCommand implements Command {
 
     private  UserDao userDao = new UserDao();

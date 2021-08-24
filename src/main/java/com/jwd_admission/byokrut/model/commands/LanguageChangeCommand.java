@@ -7,6 +7,10 @@ import com.jwd_admission.byokrut.model.CommandResponse;
 
 import static com.jwd_admission.byokrut.controller.ServiceDestination.MAIN_PAGE;
 
+/**
+ * This command changes application language
+ */
+
 public class LanguageChangeCommand implements Command {
 
     private static final String sessionPath = "javax.servlet.jsp.jstl.fmt.locale.session";

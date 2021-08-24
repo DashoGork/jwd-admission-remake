@@ -1,9 +1,11 @@
 package com.jwd_admission.byokrut.model;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.UnsupportedEncodingException;
+
+/**
+ *This class is decorator for {@link HttpServletRequest}
+ */
 
 public class CommandRequest {
     private final HttpServletRequest request;

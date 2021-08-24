@@ -13,6 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import static com.jwd_admission.byokrut.controller.ServiceDestination.MAIN_PAGE;
 
+/**
+ * This command is used in identifying user
+ */
+
 public class UserLoginCommand implements Command {
 
     private UserDao userDao = new UserDao();

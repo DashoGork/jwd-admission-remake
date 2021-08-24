@@ -15,10 +15,12 @@ import com.jwd_admission.byokrut.model.CommandResponse;
 
 import javax.servlet.http.HttpSession;
 
-import java.io.UnsupportedEncodingException;
-
 import static com.jwd_admission.byokrut.controller.ServiceDestination.MAIN_PAGE;
 import static com.jwd_admission.byokrut.controller.ServiceDestination.REGISTRATION_PAGE;
+
+/**
+ * This command registers user in db
+ */
 
 public class UserRegistrationCommand implements Command {
 

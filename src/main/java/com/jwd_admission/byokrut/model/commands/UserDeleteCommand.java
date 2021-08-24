@@ -15,6 +15,10 @@ import javax.servlet.http.HttpSession;
 
 import static com.jwd_admission.byokrut.controller.ServiceDestination.PERSONAL_ACCOUNT_PAGE;
 
+/**
+ * This command is used by admin for deleting all information about user
+ */
+
 public class UserDeleteCommand implements Command {
 
     private UserDao userDao = new UserDao();
@@ -31,10 +35,10 @@ public class UserDeleteCommand implements Command {
         userDao.delete(id);
         informationDao.delete(user.getPersonalInformation().getId());
         final HttpSession session = request.createSession();
-        int role = Integer.parseInt(String.valueOf(session.getAttribute("role")));
+        int role = Integer.parseInt(String.valueOf(session.getAttribute(SessionAttributes.role.name())));
         if (role == UserRole.USER.getRoleId()) {
-            session.removeAttribute(SessionAttributes.login.toString());
-            session.removeAttribute(SessionAttributes.role.toString());
+            session.removeAttribute(SessionAttributes.login.name());
+            session.removeAttribute(SessionAttributes.role.name());
         } else {
             SessionAttributeService.updateUserListRequestList(id, session);
         }
