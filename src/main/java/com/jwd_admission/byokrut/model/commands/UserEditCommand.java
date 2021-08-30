@@ -10,6 +10,7 @@ import com.jwd_admission.byokrut.model.Command;
 import com.jwd_admission.byokrut.model.CommandRequest;
 import com.jwd_admission.byokrut.model.CommandResponse;
 
+import static com.jwd_admission.byokrut.controller.ServiceDestination.MAIN_PAGE;
 import static com.jwd_admission.byokrut.controller.ServiceDestination.PERSONAL_ACCOUNT_PAGE;
 
 /**
@@ -22,13 +23,12 @@ public class UserEditCommand implements Command {
     private  InformationDao informationDao = new InformationDao();
     private  RequestDao requestDao = new RequestDao();
 
-    public static final CommandResponse COMMAND_RESPONSE = new CommandResponse(PERSONAL_ACCOUNT_PAGE);
+    public static final CommandResponse COMMAND_RESPONSE = new CommandResponse(MAIN_PAGE);
 
     @Override
     public CommandResponse execute(CommandRequest request) {
 
         String password = (String) request.getRequestParameter("password");
-        int id = Integer.parseInt((String) request.getRequestParameter("id"));
         String name = request.getParameter("name");
         String middleNme = request.getParameter("middleName");
         String lastName = request.getParameter("lastName");
@@ -38,6 +38,8 @@ public class UserEditCommand implements Command {
         int score4 = Integer.parseInt(request.getParameter("score_4"));
         int faculty = Integer.parseInt(request.getParameter("faculty"));
         String passportId = request.getParameter("passport_id");
+        int id = Integer.parseInt((String) request.getRequestParameter("id"));
+
         User user = userDao.findEntityById(id);
         PersonalInformation personalInformation = new PersonalInformation(user.getPersonalInformation().getId(),name,middleNme,lastName,passportId);
         user.setPassword(password);

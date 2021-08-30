@@ -57,11 +57,17 @@ public class AdminCalculateCommand implements Command {
         List<User> userListFromFmo = createUserListFromRequestList(requestDao.findAllPassed(FacultyName.FMO));
         List<User> userListFromBio = createUserListFromRequestList(requestDao.findAllPassed(FacultyName.BIO));
 
-        ServletContext servletContext = request.getSession().getServletContext();
         OutputSerializer.serialize(userListFromMmf, PathToFiles.MMFPassed.getPath());
         OutputSerializer.serialize(userListFromFmo, PathToFiles.FMOPassed.getPath());
         OutputSerializer.serialize(userListFromRfikt, PathToFiles.RFIKTPassed.getPath());
         OutputSerializer.serialize(userListFromBio, PathToFiles.BIOPassed.getPath());
+
+        ServletContext servletContext = request.getSession().getServletContext();
+        servletContext.setAttribute(ContextAttributes.listOfPassedFromMMf.toString(), userListFromMmf);
+        servletContext.setAttribute(ContextAttributes.listOfPassedFromFmo.toString(), userListFromFmo);
+        servletContext.setAttribute(ContextAttributes.listOfPassedFromRfikt.toString(), userListFromRfikt);
+        servletContext.setAttribute(ContextAttributes.listOfPassedFromBio.toString(), userListFromBio);
+        servletContext.setAttribute(ContextAttributes.calculated.toString(), true);
 
         return COMMAND_RESPONSE;
     }

@@ -33,7 +33,7 @@
                         pattern="[A-Za-z0-9А-Яа-я]{5,20}"
                         oninvalid="this.setCustomValidity('min 5, max 20')"
                         oninput="this.setCustomValidity('')"
-                        type="password" name="password" placeholder="${user.password}" required/></td>
+                        type="password" name="password" id="password" placeholder="${user.password}" required/></td>
             </tr>
             <tr>
                 <td><fmt:message key="registration.name"/>:</td>
@@ -82,16 +82,16 @@
             </tr>
             <tr>
                 <td><fmt:message key="score"/></td>
-                <td><input type="number" name="score_1" id="score_1" value="${score_1}" placeholder="Enter Login"
+                <td><input type="number" name="score_1" id="score_1" value="${score_1}" placeholder="Enter"
                            required></td>
-                <td><input type="number" name="score_2" id="score_2" value="${score_2}" placeholder="Enter Login"
+                <td><input type="number" name="score_2" id="score_2" value="${score_2}" placeholder="Enter"
                            required></td>
-                <td><input type="number" name="score_3" id="score_3" value="${score_3}" placeholder="Enter Login"
+                <td><input type="number" name="score_3" id="score_3" value="${score_3}" placeholder="Enter"
                            required></td>
-                <td><input type="number" name="score_4" id="score_4" value="${score_4}" placeholder="Enter Login"
+                <td><input type="number" name="score_4" id="score_4" value="${score_4}" placeholder="Enter"
                            required></td>
             </tr>
-            <td><output type="text" name="id" value="${user.id}" required/><c:out value="${user.id}"/></td>
+            <td><input type="number" visi name="id" id="id" value="${user.id}" required/><c:out value="${user.id}"/></td>
 
         </table>
         <input type="submit" name="conf"/>

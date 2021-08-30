@@ -19,10 +19,10 @@ public class OutputSerializer {
         boolean result = false;
         try{File output = new File(
                     PropertyReaderUtil.class.getClassLoader().getResource(path).getFile());
+            if (!output.exists()) {
+                output.createNewFile();
+            }
             if(output!=null){
-                if (!output.exists()) {
-                    output.createNewFile();
-                }
                 try (FileOutputStream outputStream = new FileOutputStream(output);
                      ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream)) {
                     objectOutputStream.writeObject(object);
